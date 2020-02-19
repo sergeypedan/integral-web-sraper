@@ -25,4 +25,12 @@ Gem::Specification.new do |spec|
   spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_runtime_dependency "activerecord", [">= 4"]
+  spec.add_runtime_dependency "http", [">= 4.3"]
+  spec.add_runtime_dependency "json", [">= 2.3"]
+  spec.add_runtime_dependency "nokogiri", [">= 1.10"]
+  spec.add_runtime_dependency "rake", [">= 13"]
+  spec.add_runtime_dependency "sqlite3", [">= 1.4"]
 end
+

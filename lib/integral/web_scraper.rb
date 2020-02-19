@@ -1,4 +1,5 @@
 require "integral/web_scraper/version"
+require "integral/web_scraper/validate"
 
 module Integral
   module WebScraper
