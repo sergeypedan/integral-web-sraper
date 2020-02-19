@@ -1,6 +1,6 @@
-RSpec.describe Integral::WebScrapper do
+RSpec.describe Integral::WebScraper do
   it "has a version number" do
-    expect(Integral::WebScrapper::VERSION).not_to be nil
+    expect(Integral::WebScraper::VERSION).not_to be nil
   end
 
   it "does something useful" do

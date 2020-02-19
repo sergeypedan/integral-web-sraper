@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "integral/web_scrapper"
+require "integral/web_scraper"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

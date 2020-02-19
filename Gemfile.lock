@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    integral-web_scrapper (0.1.0)
+    integral-web_scraper (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -26,7 +26,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  integral-web_scrapper!
+  integral-web_scraper!
   rake (>= 13.0)
   rspec (>= 3.9)
 

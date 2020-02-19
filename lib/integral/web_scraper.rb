@@ -1,7 +1,7 @@
-require "integral/web_scrapper/version"
+require "integral/web_scraper/version"
 
 module Integral
-  module WebScrapper
+  module WebScraper
     class Error < StandardError; end
     # Your code goes here...
   end
