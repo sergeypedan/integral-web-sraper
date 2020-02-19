@@ -1,4 +1,4 @@
-desc "Fetch web pages and save them in the DB"
+desc "Creates a directory \"db\", creates an SQLite3 database with a table and dumps structure into \"schema.db\". Will not delete existing DB."
 
 namespace :web_scraper do
   task :setup_database do
@@ -12,8 +12,10 @@ namespace :web_scraper do
 
     # ActiveRecord::Base.connection.create_database("data")
 
-    unless CONNECTION.table_exists?(:pages)
-
+    puts
+    if CONNECTION.table_exists?(:pages)
+      puts "Table :pages found -> doing nothing"
+    else
       puts "Table :pages not found -> creating it right now"
 
       CONNECTION.create_table :pages do |t|
@@ -24,6 +26,8 @@ namespace :web_scraper do
         t.text     :processed_html
         t.datetime :processed_at
       end
+
+      CONNECTION.add_index :pages, :url, unique: true
 
       File.open("db/schema.rb", "w:utf-8") do |file|
         ActiveRecord::SchemaDumper.dump(CONNECTION, file)

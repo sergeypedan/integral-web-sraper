@@ -4,7 +4,7 @@ namespace :web_scraper do
   task :reprocess_pages do
     require "integral/web_scraper/database_connection"
 
-    pages = Page.all
+    pages = Integral::WebScraper::Page.all
     puts "#{pages.size} to re-process\n"
 
     pages.each do |page|
