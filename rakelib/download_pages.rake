@@ -4,7 +4,7 @@ namespace :web_scraper do
   task :download_pages do
     require "integral/web_scraper/database_connection"
 
-  	urls = YAML.load_file("config/urls.yml").uniq.sort
+  	urls = YAML.load_file("config/urls.yml").uniq
   	puts "#{urls.count} initially requested\n"
 
     Integral::WebScraper::Validate.absolute_urls!(urls)

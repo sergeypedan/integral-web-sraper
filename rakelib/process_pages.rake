@@ -9,7 +9,7 @@ namespace :web_scraper do
 
     pages.each do |page|
       transformer = PageTransformer.new(page.downloaded_html, page.url)
-      page.update(processed_html: transformer.html, title: transformer.page_title)
+      page.update(processed_html: transformer.html, title: transformer.page_title, processed_at: Time.current)
     end
 
     puts "\nC'est fin!"

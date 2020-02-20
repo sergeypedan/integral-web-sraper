@@ -19,12 +19,13 @@ namespace :web_scraper do
       puts "Table :pages not found -> creating it right now"
 
       CONNECTION.create_table :pages do |t|
-        t.string   :url, null: false
-        t.string   :title
-        t.text     :downloaded_html
+        t.string   :url,   null: false
+        t.string   :title, null: false, default: ""
         t.datetime :downloaded_at
-        t.text     :processed_html
         t.datetime :processed_at
+        t.text     :downloaded_html, null: false, default: ""
+        t.text     :processed_html,  null: false, default: ""
+        t.text     :ebook_html,      null: false, default: ""
       end
 
       CONNECTION.add_index :pages, :url, unique: true
