@@ -5,7 +5,7 @@
 desc "Process pages’ HTML and save the resulting HTML in the DB"
 
 task :process_pages do
-  require "integral/web_scraper/database_connection"
+  require_relative "../lib/integral/web_scraper/database_connection"
 
 	pages = Integral::WebScraper::Page.where(processed_html: nil)
   puts "#{pages.size} to process\n"

@@ -5,7 +5,7 @@
 desc "Builds an ePub"
 
 task "export_epub" do
-  require "integral/web_scraper/database_connection"
+  require_relative "../lib/integral/web_scraper/database_connection"
   require_relative "../lib/processor"
 
   Epub::Opf.new.build_and_write!

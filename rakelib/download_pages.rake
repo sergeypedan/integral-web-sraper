@@ -5,9 +5,8 @@
 desc "Fetch web pages and save them in the DB"
 
 task :download_pages do
-  require "http"
-  # require "typhoeus"
-  require "integral/web_scraper/database_connection"
+  require "httparty"
+  require_relative "../lib/integral/web_scraper/database_connection"
 
   yaml_urls = YAML.load_file("config/urls.yml")
   puts "#{yaml_urls.count} URLs initially requested\n"
@@ -41,7 +40,6 @@ task :download_pages do
     puts "yaml_urls.count: #{yaml_urls.count}"
     puts "downloaded_pages.count: #{downloaded_pages.count}"
     puts "not_downloaded_pages.count: #{not_downloaded_pages.count}"
-    binding.pry
     exit 1
   end
 
@@ -53,15 +51,15 @@ task :download_pages do
   headers = {
     "Accept"          => "text/html,application/xhtml+xml,application/xml",
     "Accept-Charset"  => "utf-8",
-    "Accept-Encoding" => "deflate, gzip",
+    "Accept-Encoding" => "deflate",
     "Accept-Language" => "en-US,en;q=0.9,ru;q=0.8",
     "Cache-Control"   => "no-cache",
     "User-Agent"      => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
   }
+
   not_downloaded_pages.each do |page|
     puts "Downloading #{page.url}"
-    html = HTTP.headers(headers).get(page.url).body.to_s
-    # html = Typhoeus.get(page.url, headers: headers).body
+    html = HTTParty.get(page.url, headers: headers).body
     html = html.encode("UTF-8", html.encoding) if (html.encoding != Encoding::UTF_8)
     page.update(downloaded_at: Time.current, downloaded_html: html)
   end

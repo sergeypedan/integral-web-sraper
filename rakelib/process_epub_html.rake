@@ -5,7 +5,7 @@
 desc "Processes pages and saves resulting HTML into the DB"
 
 task :process_epub_html do
-  require "integral/web_scraper/database_connection"
+  require_relative "../lib/integral/web_scraper/database_connection"
 
   pages = Page.where(epub_html: "")
   puts "#{pages.size} to process\n"
