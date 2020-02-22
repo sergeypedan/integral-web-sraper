@@ -1,4 +1,6 @@
+# encoding: UTF-8
 # frozen_string_literal: true
+# warn_indent: true
 
 require "integral/web_scraper/version"
 # require "integral/web_scraper/database_connection"

@@ -1,3 +1,7 @@
+# encoding: UTF-8
+# frozen_string_literal: true
+# warn_indent: true
+
 desc "Re-processes all pages’ HTML and save results in the DB"
 
 task :reprocess_pages do

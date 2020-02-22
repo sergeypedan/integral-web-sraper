@@ -1,5 +1,9 @@
+abort "Use `ENV=test rspec` to trigger tests" unless ENV["ENV"] == "test"
+
 require "bundler/setup"
 require "integral/web_scraper"
+
+ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: "spec/db.sqlite3")
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "activerecord", [">= 4"]
   spec.add_runtime_dependency "http", [">= 4.3"]
+  spec.add_runtime_dependency "typhoeus", [">= 1.3.1"]
   spec.add_runtime_dependency "json", [">= 2.3"]
   spec.add_runtime_dependency "nokogiri", [">= 1.10"]
   spec.add_runtime_dependency "rake", [">= 13"]

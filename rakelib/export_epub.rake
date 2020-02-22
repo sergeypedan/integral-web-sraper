@@ -1,4 +1,8 @@
-desc "Builds epub"
+# encoding: UTF-8
+# frozen_string_literal: true
+# warn_indent: true
+
+desc "Builds an ePub"
 
 task "export_epub" do
   require "integral/web_scraper/database_connection"

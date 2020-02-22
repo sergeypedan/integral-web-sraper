@@ -1,3 +1,7 @@
+# encoding: UTF-8
+# frozen_string_literal: true
+# warn_indent: true
+
 desc "Process pages’ HTML and save the resulting HTML in the DB"
 
 task :process_pages do
